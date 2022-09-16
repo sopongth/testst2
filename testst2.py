@@ -5,6 +5,8 @@ import streamlit as st
 from streamlit_webrtc import webrtc_streamer, WebRtcMode, ClientSettings
 from gtts import gTTS
 import speech_recognition as sr
+import time
+
 r = sr.Recognizer()
 
 def main():
@@ -84,11 +86,21 @@ def main():
             st.audio(audio_bytes, format='audio/wav',start_time=0)
         if talk == 'บ้านอยู่ที่ไหน':
             speak = gTTS(text='นครปฐมค่ะ', lang='th')
-            
+                        
             speak.save("temp_speak.wav")
-            audio_file = open('temp_speak.wav', 'rb')
-            audio_bytes = audio_file.read()
-            st.audio(audio_bytes, format='audio/wav',start_time=0)
+            #audio_file = open('temp_speak.wav', 'rb')
+            #audio_bytes = audio_file.read()
+            #st.audio(audio_bytes, format='audio/wav',start_time=0)
+            html_string = """
+            <audio controls autoplay>
+              <source src="temp_speak.wav" type="audio/wav">
+            </audio>
+            """
+
+            sound = st.empty()
+            sound.markdown(html_string, unsafe_allow_html=True)  # will display a st.audio with the sound you specified in the "src" of the html_string and autoplay it
+            time.sleep(2)  # wait for 2 seconds to finish the playing of the audio
+            sound.empty()  # optionally delete the element afterwards
         # Reset
         st.session_state["audio_buffer"] = pydub.AudioSegment.empty()
 
