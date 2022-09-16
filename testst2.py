@@ -4,7 +4,6 @@ import numpy as np
 import streamlit as st
 from streamlit_webrtc import webrtc_streamer, WebRtcMode, ClientSettings
 from gtts import gTTS
-
 import speech_recognition as sr
 r = sr.Recognizer()
 
@@ -83,7 +82,13 @@ def main():
             audio_file = open('temp_speak.wav', 'rb')
             audio_bytes = audio_file.read()
             st.audio(audio_bytes, format='audio/wav',start_time=0)
-           
+        if talk == 'บ้านอยู่ที่ไหน':
+            speak = gTTS(text='นครปฐมค่ะ', lang='th')
+            
+            speak.save("temp_speak.wav")
+            audio_file = open('temp_speak.wav', 'rb')
+            audio_bytes = audio_file.read()
+            st.audio(audio_bytes, format='audio/wav',start_time=0)
         # Reset
         st.session_state["audio_buffer"] = pydub.AudioSegment.empty()
 
