@@ -66,7 +66,7 @@ def main():
         with harvard as source:
             audio = r.record(source)
 
-        try:
+        try: 
             talk = r.recognize_google(audio,language='th-TH')           
         except sr.RequestError as e:
             talk = "---"
