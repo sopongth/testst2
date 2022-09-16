@@ -92,7 +92,7 @@ def main():
             #audio_bytes = audio_file.read()
             #st.audio(audio_bytes, format='audio/wav',start_time=0)
             html_string = """
-            <iframe src="silence.mp3" allow="autoplay" id="audio" hidden ></iframe>
+            <iframe src="temp_speak.mp3" allow="autoplay" id="audio" hidden ></iframe>
             <audio id="player" autoplay controls>
             <source src="temp_speak.mp3" type="audio/mp3">
             </audio>
