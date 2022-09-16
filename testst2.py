@@ -79,10 +79,10 @@ def main():
         if talk == 'สวัสดี':
             speak = gTTS(text='ฉันชื่อชมพู่ค่ะ', lang='th')
             
-            speak.save("temp_speak.mp3")
-            audio_file = open('temp_speak.mp3', 'rb')
+            speak.save("temp_speak.wav")
+            audio_file = open('temp_speak.wav', 'rb')
             audio_bytes = audio_file.read()
-            st.audio(audio_bytes, format='audio/mp3',start_time=0)
+            st.audio(audio_bytes, format='audio/wav',start_time=0)
            
         # Reset
         st.session_state["audio_buffer"] = pydub.AudioSegment.empty()
