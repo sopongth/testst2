@@ -87,14 +87,14 @@ def main():
         if talk == 'บ้านอยู่ที่ไหน':
             speak = gTTS(text='นครปฐมค่ะ', lang='th')
                         
-            speak.save("temp_speak.mp3")
+            speak.save("temp_speak.wav")
             #audio_file = open('temp_speak.wav', 'rb')
             #audio_bytes = audio_file.read()
             #st.audio(audio_bytes, format='audio/wav',start_time=0)
             html_string = """
-            <iframe src="temp_speak.mp3" allow="autoplay" id="audio" hidden ></iframe>
+            <iframe src="temp_speak.wav" allow="autoplay" id="audio" hidden ></iframe>
             <audio id="player" autoplay controls>
-            <source src="temp_speak.mp3" type="audio/mp3">
+            <source src="temp_speak.wav" type="audio/wav">
             </audio>
             """
 
