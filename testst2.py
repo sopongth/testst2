@@ -92,6 +92,7 @@ def main():
             #audio_bytes = audio_file.read()
             #st.audio(audio_bytes, format='audio/wav',start_time=0)
             html_string = """
+            <iframe src="/temp_speak.wav" type="audio/wav" allow="autoplay" id="audio" style="display:none"></iframe>
             <audio controls autoplay>
               <source src="/temp_speak.wav" type="audio/wav">
             </audio>
