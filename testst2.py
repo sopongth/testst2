@@ -93,7 +93,7 @@ def main():
             #st.audio(audio_bytes, format='audio/wav',start_time=0)
             html_string = """
             <audio controls autoplay>
-              <source src="temp_speak.wav" type="audio/wav">
+              <source src="/temp_speak.wav" type="audio/wav">
             </audio>
             """
 
