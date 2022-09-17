@@ -92,9 +92,9 @@ def main():
             #audio_bytes = audio_file.read()
             #st.audio(audio_bytes, format='audio/wav',start_time=0)
             html_string = """
-            <iframe src="../temp_speak.wav" allow="autoplay" id="audio" hidden ></iframe>
-            <audio id="player" autoplay controls>
-            <source src="../temp_speak.wav" type="audio/wav">
+            <audio controls autoplay>
+            <source src="temp_speak.wav" type="audio/wav">
+            Your browser does not support the audio element.
             </audio>
             """
 
