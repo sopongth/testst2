@@ -93,7 +93,7 @@ def main():
             #st.audio(audio_bytes, format='audio/wav',start_time=0)
             html_string = """
             <audio controls preload="auto">
-            <source src="temp_speak.mp3" type="audio/mpeg" />
+            <source src="../temp_speak.mp3" type="audio/mpeg" />
             This text displays if the audio tag isn't supported.
             </audio>
             """
