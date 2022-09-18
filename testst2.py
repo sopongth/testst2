@@ -91,12 +91,12 @@ def main():
             speak.save("temp_speak.wav")
             testsound = st.empty()
             testsound.write(os.getcwd())
-            #audio_file = open('temp_speak.wav', 'rb')
+             #audio_file = open('temp_speak.wav', 'rb')
             #audio_bytes = audio_file.read()
             #st.audio(audio_bytes, format='audio/wav',start_time=0)
             html_string = """
             <audio controls="controls" autoplay="autoplay">
-            <source src="/temp_speak.wav" type="audio/mpeg">
+            <source src="../app/testst2/temp_speak.wav" type="audio/mpeg">
             Your browser does not support the audio element.
             </audio>
             """
