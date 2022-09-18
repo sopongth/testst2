@@ -88,20 +88,20 @@ def main():
             speak = gTTS(text='นครปฐมค่ะ', lang='th')
                         
             speak.save("temp_speak.wav")
-            audio_file = open('temp_speak.wav', 'rb')
-            audio_bytes = audio_file.read()
-            st.audio(audio_bytes, format='audio/wav',start_time=0)
-            #html_string = """
-            #<audio controls preload="auto">
-            #<source src="../temp_speak.mp3" type="audio/mpeg" />
-            #This text displays if the audio tag isn't supported.
-            #</audio>
-            #"""
+            #audio_file = open('temp_speak.wav', 'rb')
+            #audio_bytes = audio_file.read()
+            #st.audio(audio_bytes, format='audio/wav',start_time=0)
+            html_string = """
+            <audio controls="controls" autoplay="autoplay">
+            <source src="temp_speak.wav" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
+            """
 
-            #sound = st.empty()
-            #sound.markdown(html_string, unsafe_allow_html=True)  # will display a st.audio with the sound you specified in the "src" of the html_string and autoplay it
-            #time.sleep(5)  # wait for 2 seconds to finish the playing of the audio
-            #sound.empty()  # optionally delete the element afterwards
+            sound = st.empty()
+            sound.markdown(html_string, unsafe_allow_html=True)  # will display a st.audio with the sound you specified in the "src" of the html_string and autoplay it
+            time.sleep(5)  # wait for 2 seconds to finish the playing of the audio
+            sound.empty()  # optionally delete the element afterwards
         # Reset
         st.session_state["audio_buffer"] = pydub.AudioSegment.empty()
 
