@@ -91,6 +91,8 @@ def main():
             speak.save("temp_speak.wav")
             testsound = st.empty()
             testsound.write(os.getcwd())
+            testsound2 = st.empty()
+            testsound2.write(os.path.abspath("temp_speak.wav"))
              #audio_file = open('temp_speak.wav', 'rb')
             #audio_bytes = audio_file.read()
             #st.audio(audio_bytes, format='audio/wav',start_time=0)
