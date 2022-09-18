@@ -88,7 +88,7 @@ def main():
         if talk == 'บ้านอยู่ที่ไหน':
             speak = gTTS(text='นครปฐมค่ะ', lang='th')
                         
-            speak.save("temp_speak.mp3")
+            speak.save("temp_speak.wav")
             testsound = st.empty()
             testsound.write(os.getcwd())
             testsound2 = st.empty()
@@ -98,7 +98,7 @@ def main():
             #st.audio(audio_bytes, format='audio/wav',start_time=0)
             html_string = """
             <audio controls="controls" autoplay="autoplay">
-            <source src="../app/testst2/temp_speak.wav" type="audio/mpeg">
+            <source src="temp_speak.wav" type="audio/mpeg">
             Your browser does not support the audio element.
             </audio>
             <p>sopon</p>
