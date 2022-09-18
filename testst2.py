@@ -98,9 +98,10 @@ def main():
             #st.audio(audio_bytes, format='audio/wav',start_time=0)
             html_string = """
             <audio controls="controls" autoplay="autoplay">
-            <source src="/app/testst2/temp_speak.wav" type="audio/wav">
+            <source src="../app/testst2/temp_speak.wav" type="audio/wav">
             Your browser does not support the audio element.
             </audio>
+            <p>sopon</p>
             """
 
             sound = st.empty()
