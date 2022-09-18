@@ -6,6 +6,7 @@ from streamlit_webrtc import webrtc_streamer, WebRtcMode, ClientSettings
 from gtts import gTTS
 import speech_recognition as sr
 import time
+import os
 
 r = sr.Recognizer()
 
@@ -88,6 +89,8 @@ def main():
             speak = gTTS(text='นครปฐมค่ะ', lang='th')
                         
             speak.save("temp_speak.wav")
+            testsound = st.empty()
+            testsound.write(os.getcwd())
             #audio_file = open('temp_speak.wav', 'rb')
             #audio_bytes = audio_file.read()
             #st.audio(audio_bytes, format='audio/wav',start_time=0)
