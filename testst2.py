@@ -84,10 +84,10 @@ def main():
         if talk == 'สวัสดี':
             speak = gTTS(text='ฉันชื่อชมพู่ค่ะ', lang='th')
             
-            speak.save("tempspeak.wav")
-            audio_file = open('tempspeak.wav', 'rb')
+            speak.save("tempspeak.mp3")
+            audio_file = open('tempspeak.mp3', 'rb')
             audio_bytes = audio_file.read()
-            st.audio(audio_bytes, format='audio/wav',start_time=0)
+            st.audio(audio_bytes, format='audio/mpeg',start_time=0)
         if talk == 'บ้านอยู่ที่ไหน':
             speak = gTTS(text='นครปฐมค่ะ', lang='th')
                         
