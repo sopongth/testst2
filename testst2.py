@@ -10,7 +10,6 @@ import time
 import os
 import pygame
 pygame.init()
-pygame.mixer.init()
 
 r = sr.Recognizer()
 
@@ -85,20 +84,23 @@ def main():
         if talk == 'สวัสดี':
             speak = gTTS(text='ฉันชื่อชมพู่ค่ะ', lang='th')
             
-            speak.save("temp_speak.wav")
-            audio_file = open('temp_speak.wav', 'rb')
+            speak.save("tempspeak.wav")
+            audio_file = open('tempspeak.wav', 'rb')
             audio_bytes = audio_file.read()
             st.audio(audio_bytes, format='audio/wav',start_time=0)
         if talk == 'บ้านอยู่ที่ไหน':
             speak = gTTS(text='นครปฐมค่ะ', lang='th')
                         
-            speak.save("temp_speak.mp3")
-            pygame.mixer.music.load("temp_speak.mp3")
-            pygame.mixer.music.play()
-            while pygame.mixer.music.get_busy():
-                continue
+            speak.save("tempspeak.mp3")
+            pygame.mixer.music.load("tempspeak.mp3") # เสียงยาว เสียงประกอบ
+            pygame.mixer.music.play(-1,0.0)
+            pygame.time.delay(2000) # 4 วินาที
             pygame.mixer.music.stop()
-            pygame.mixer.music.unload()
+            #pygame.mixer.music.play()
+            #while pygame.mixer.music.get_busy():
+            #    continue
+            #pygame.mixer.music.stop()
+            #pygame.mixer.music.unload()
         # Reset
         st.session_state["audio_buffer"] = pydub.AudioSegment.empty()
 
