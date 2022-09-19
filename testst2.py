@@ -9,6 +9,7 @@ import speech_recognition as sr
 import time
 import os
 import pygame
+pygame.init()
 pygame.mixer.init()
 
 r = sr.Recognizer()
