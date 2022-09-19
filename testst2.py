@@ -87,6 +87,7 @@ def main():
             speak.save("tempspeak.mp3")
             audio_file = open('tempspeak.mp3', 'rb')
             audio_bytes = audio_file.read()
+            audio_file.close()
             st.audio(audio_bytes, format='audio/mpeg',start_time=0)
         if talk == 'บ้านอยู่ที่ไหน':
             speak = gTTS(text='นครปฐมค่ะ', lang='th')
