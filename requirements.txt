@@ -4,4 +4,4 @@ streamlit_webrtc
 SpeechRecognition
 gTTS
 pygame
-PyAudio
+pyaudio
