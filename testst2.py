@@ -93,14 +93,14 @@ def main():
                         
             speak.save("tempspeak.mp3")
             pygame.mixer.music.load("tempspeak.mp3") # เสียงยาว เสียงประกอบ
-            pygame.mixer.music.play(-1,0.0)
-            pygame.time.delay(2000) # 4 วินาที
-            pygame.mixer.music.stop()
-            #pygame.mixer.music.play()
-            #while pygame.mixer.music.get_busy():
-            #    continue
+            #pygame.mixer.music.play(-1,0.0)
+            #pygame.time.delay(2000) # 4 วินาที
             #pygame.mixer.music.stop()
-            #pygame.mixer.music.unload()
+            pygame.mixer.music.play()
+            while pygame.mixer.music.get_busy():
+                continue
+            pygame.mixer.music.stop()
+            pygame.mixer.music.unload()
         # Reset
         st.session_state["audio_buffer"] = pydub.AudioSegment.empty()
 
