@@ -2,11 +2,14 @@ import queue
 import pydub
 import numpy as np
 import streamlit as st
+import streamlit.components.v1 as components
 from streamlit_webrtc import webrtc_streamer, WebRtcMode, ClientSettings
 from gtts import gTTS
 import speech_recognition as sr
 import time
 import os
+import pygame
+pygame.mixer.init()
 
 r = sr.Recognizer()
 
@@ -88,26 +91,13 @@ def main():
         if talk == 'บ้านอยู่ที่ไหน':
             speak = gTTS(text='นครปฐมค่ะ', lang='th')
                         
-            speak.save("temp_speak.wav")
-            testsound = st.empty()
-            testsound.write(os.getcwd())
-            testsound2 = st.empty()
-            testsound2.write(os.path.abspath("temp_speak.wav"))
-             #audio_file = open('temp_speak.wav', 'rb')
-            #audio_bytes = audio_file.read()
-            #st.audio(audio_bytes, format='audio/wav',start_time=0)
-            html_string = """
-            <audio controls="controls" autoplay="autoplay">
-            <source src="temp_speak.wav" type="audio/mpeg">
-            Your browser does not support the audio element.
-            </audio>
-            <p>sopon</p>
-            """
-
-            sound = st.empty()
-            sound.markdown(html_string, unsafe_allow_html=True)  # will display a st.audio with the sound you specified in the "src" of the html_string and autoplay it
-            time.sleep(5)  # wait for 2 seconds to finish the playing of the audio
-            sound.empty()  # optionally delete the element afterwards
+            speak.save("temp_speak.mp3")
+            pygame.mixer.music.load("temp_speak.mp3")
+            pygame.mixer.music.play()
+            while pygame.mixer.music.get_busy():
+                continue
+            pygame.mixer.music.stop()
+            pygame.mixer.music.unload()
         # Reset
         st.session_state["audio_buffer"] = pydub.AudioSegment.empty()
 
