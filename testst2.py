@@ -10,7 +10,7 @@ import time
 import os
 import pygame
 pygame.init()
-
+pygame.mixer.init(44100, -16,2,2048)
 r = sr.Recognizer()
 
 def main():
