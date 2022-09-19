@@ -8,9 +8,9 @@ from gtts import gTTS
 import speech_recognition as sr
 import time
 import os
-import pygame
-pygame.init()
-pygame.mixer.init(44100, -16,2,2048)
+#from aiortc.contrib.media import MediaPlayer
+import webbrowser
+
 r = sr.Recognizer()
 
 def main():
@@ -93,15 +93,17 @@ def main():
             speak = gTTS(text='นครปฐมค่ะ', lang='th')
                         
             speak.save("tempspeak.mp3")
-            pygame.mixer.music.load("tempspeak.mp3") # เสียงยาว เสียงประกอบ
+            webbrowser.open("tempspeak.mp3")
+            #MediaPlayer("tempspeak.mp3")
+            #pygame.mixer.music.load("tempspeak.mp3") # เสียงยาว เสียงประกอบ
             #pygame.mixer.music.play(-1,0.0)
             #pygame.time.delay(2000) # 4 วินาที
             #pygame.mixer.music.stop()
-            pygame.mixer.music.play()
-            while pygame.mixer.music.get_busy():
-                continue
-            pygame.mixer.music.stop()
-            pygame.mixer.music.unload()
+            #pygame.mixer.music.play()
+            #while pygame.mixer.music.get_busy():
+            #    continue
+            #pygame.mixer.music.stop()
+            #pygame.mixer.music.unload()
         # Reset
         st.session_state["audio_buffer"] = pydub.AudioSegment.empty()
 

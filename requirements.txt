@@ -3,4 +3,3 @@ streamlit
 streamlit_webrtc
 SpeechRecognition
 gTTS
-pygame
